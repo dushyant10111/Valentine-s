@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/android-chrome-192x192.png">
+    <title>Lobster</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="loader-container">
+        <img src="assets/heart.gif" alt="">
+    </div>
+    <div id="main-content">
+        <section class="banner-section">
+            <img class="banner-image" src="https://d2pas86kykpvmq.cloudfront.net/landings/valentines/hearts-bg.png" alt="">
+            <div class="middle-div">
+                <img src="https://d2pas86kykpvmq.cloudfront.net/landings/valentines/heart.png" alt="">
+            </div>
+        </section>
+        <section class="content-section">
+            <h1>Can I steal you for Valentine's day?</h1>
+            <div class="buttons">
+                <a  class="cta yes" onclick="revealImages(); delayedWhatsAppNotification();">Yes</a>
+                <a href="#" class="cta no" id="no">No</a>
+            </div>
+            <div class="images">
+                <img src="https://d2pas86kykpvmq.cloudfront.net/landings/valentines/preview-11.png" alt="">
+                <img src="https://d2pas86kykpvmq.cloudfront.net/landings/valentines/preview-15.png" alt="">
+                <img src="https://d2pas86kykpvmq.cloudfront.net/landings/valentines/preview-17.png" alt="">
+                <img src="https://d2pas86kykpvmq.cloudfront.net/landings/valentines/preview-27.png" alt="">
+                <img src="https://d2pas86kykpvmq.cloudfront.net/landings/valentines/preview-35.png" alt="">
+                <img src="https://d2pas86kykpvmq.cloudfront.net/landings/valentines/preview-36.png" alt="">
+                <img src="https://d2pas86kykpvmq.cloudfront.net/landings/valentines/preview-7.png" alt="">
+                <img src="https://d2pas86kykpvmq.cloudfront.net/landings/valentines/preview-4.png" alt="">
+                <img src="https://d2pas86kykpvmq.cloudfront.net/landings/valentines/preview-2.png" alt="">
+            </div>
+        </section>
+        <section></section>
+    </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+    
+        document.getElementById("loader-container").style.display = "none";
+
+     
+        document.getElementById("main-content").classList.add("visible");
+    }, 5000);
+});
+
+</script>
+<script>
+
+  
+    gsap.registerPlugin(ScrollTrigger);
+
+gsap.to('.banner-image', {
+    scale: 2,
+    scrollTrigger: {
+        trigger: '.banner-image',
+        start: 'top top',
+        end: 'bottom top', 
+        scrub: true, 
+        startScale: 1 
+    }
+});
+
+    $('.yes').on('click', function(){  
+  function random(max){
+      return Math.random() * (max - 0) + 0;
+  }
+
+  var c = document.createDocumentFragment();
+  for (var i=0; i<100; i++) {
+    var styles = 'transform: translate3d(' + (random(1000) - 500) + 'px, ' + (random(400) - 150) + 'px, 0) rotate(' + random(360) + 'deg);\
+                  background: hsla('+random(360)+',100%,50%,1);\
+                  animation: bang 700ms ease-out forwards;\
+                  opacity: 0';
+      
+    var e = document.createElement("i");
+    e.style.cssText = styles.toString();
+    c.appendChild(e);
+}
+  $(this).append(c);
+})
+</script>
+<script>
+    function revealImages() {
+        const images = document.querySelectorAll('.images img');
+
+        images.forEach((image, index) => {
+            gsap.to(image, {
+                opacity: 1,
+                duration: 0.5,
+                delay: index * 0.2 
+            });
+        });
+    }
+    
+</script>
+    <script>
+
+function sendWhatsAppNotification() {
+            var phoneNumber = "1237245141";
+            var whatsappLink = "https://wa.me/" + phoneNumber;
+            window.open(whatsappLink, "_blank");
+        }
+
+        function delayedWhatsAppNotification() {
+            // Add a delay of 4 seconds (4000 milliseconds)
+            setTimeout(sendWhatsAppNotification, 4000);
+        }
+
+    </script>
+    <script>
+        var caller = $("#no");
+function foo()
+{
+    var randX = Math.floor(Math.random() * (window.innerWidth - 100));
+    var randY = Math.floor(Math.random() * (window.innerHeight - 100));
+    console.log([randX, randY]);
+    caller.stop().animate({"left": randX + "px", "top": randY + "px"});
+
+}
+
+$(document).ready(function() {
+    
+    caller.on('mouseenter', foo);
+    caller.on('click', function(){
+        alert('clicked!');
+    });
+    
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Quintessential&display=swap');
+body{
+    background-color: #f6bbcf;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+section{
+    height: 100vh;
+    position: relative;
+    // overflow: hidden;
+}
+.middle-div{
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 20.833333333333332vw;
+
+    img{
+        width: 100%;
+    }
+}
+.banner-section{
+    overflow: hidden;
+}
+.banner-image{
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    
+}
+.banner-image {
+    width: 100%; /* Ensure the image takes the full width of its container */
+    transform-origin: center center;
+    transition: transform 0.5s;
+}
+.main-image{
+    max-width: 100%;
+    width: 70%;
+    margin: auto;
+}
+.content-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3.3333333333333335vw 0;
+}
+h1{
+    color: #e3252f;
+    font-size: 6.944444444444445vw;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin-top: 0px;
+    margin-bottom: 3.3333333333333335vw;
+    font-family: 'Quintessential', serif;
+    line-height: 6.944444444444445vw;
+    text-align: center;
+    width: 60%;
+
+}
+.cta{
+    padding: 0.6944444444444444vw 5.555555555555555vw;
+    font-size: 2.2222222222222223vw;
+    font-family: "Open Sans", sans-serif;
+    text-decoration: none;
+    border: 0.06944444444444445vw solid #e3252f;
+    border-radius: 2.2222222222222223vw;
+    width: 19.444444444444443vw;
+    color: #e3252f;
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+    z-index: 1000;
+
+}
+.buttons{
+    display: flex;
+    gap: 3.4722222222222223vw;
+}
+
+.images{
+    img{
+        width: 10.416666666666666vw;
+        position: absolute;
+        opacity: 0;
+        animation: float 08s ease-in infinite;
+
+        &:nth-child(1){
+            top: 2.7777777777777777vw;
+            right: 6.944444444444445vw;
+            rotate: 0deg;
+        }
+        &:nth-child(2){
+            top: 6.25vw;
+            left: 18.055555555555557vw;
+            rotate: 30deg;
+
+        }
+        &:nth-child(3){
+            top: 2.7777777777777777vw;
+            left: 50%;
+            rotate: 20deg;
+        }
+        &:nth-child(4){
+            bottom: 15.277777777777779vw;
+            left: 2.7777777777777777vw;
+            rotate: -30deg;
+        }
+        &:nth-child(5){
+            top: 1.3888888888888888vw;
+            left: 2.0833333333333335vw;
+            rotate: 0deg;
+
+        }
+        &:nth-child(6){
+            top: 32.638888888888886vw;
+            left: 25.694444444444443vw;
+            rotate: 20deg;
+
+        }
+        &:nth-child(7){
+            bottom: 2.7777777777777777vw;
+            left: 9.027777777777779vw;
+            rotate: 0deg;
+
+        }
+        &:nth-child(8){
+            bottom: 2.0833333333333335vw;
+            right: 11.11111111111111vw;
+            rotate: 30deg;
+
+        }
+        &:nth-child(9){
+            top: 13.88888888888889vw;
+            right: 15.277777777777779vw;
+            rotate: 30deg
+        }
+    }
+    
+}
+
+@keyframes bang {
+    from {
+      transform: translate3d(0,0,0);
+      opacity: 1;
+    }
+  }
+  .yes {
+    cursor: pointer;
+    position: relative;
+    i {
+      position: absolute;
+      display: block;
+      left: 50%;
+      top: 0;
+      width: 0.40833333333333334vw;
+      height: 0.9555555555555556vw;
+      background: red;
+      opacity: 0;
+    }
+  
+  }
+
+  @keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+#loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    transition: all 0.3s ease-in;
+}
+
+#main-content {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#main-content.visible {
+    opacity: 1;
+}
